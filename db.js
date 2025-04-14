@@ -6,10 +6,7 @@ const mongoURI = process.env.mongoURI;
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/margdarshak', {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/margdarshak');
         console.log("Connected to DB");
     } catch (err) {
         console.log('connection failed', err);
@@ -38,9 +35,6 @@ const userSchema = new Schema({
 }, {
     timestamps: true
 });
-
-// Create index for username
-userSchema.index({ username: 1 }, { unique: true });
 
 const adminSchema = new Schema({
     username: { type: String, unique: true },

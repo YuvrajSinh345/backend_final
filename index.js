@@ -11,9 +11,7 @@ const cors = require("cors");
 app.use(cors()); // Replace with your frontend's URL
 
 app.use(express.json());
-app.use("/", (req, res) => {
-    res.send("Backend is running");
-});
+
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/quiz", quizRouter);
 app.use("/api/v1/path", careerRouter);
